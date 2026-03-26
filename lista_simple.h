@@ -17,6 +17,11 @@ typedef struct {
 typedef int (*CompararFunc)(void*, void*);
 typedef void (*ImprimirFunc)(void*);
 
+//Funciones para nodo
+Nodo* crearNodo(void *dato, size_t size);
+void borrarNodo(Nodo *n);
+bool modificarNodo(Nodo*n, void *d);
+
 // Crear / estado
 Lista* crearLista();
 int esVacia(Lista* lista);
@@ -24,7 +29,7 @@ int esVacia(Lista* lista);
 // Inserciones
 void insertarInicio(Lista* lista, void* dato, size_t size);
 void insertarFinal(Lista* lista, void* dato, size_t size);
-
+void insertarPorPosiciones(Lista * lista, void* dato, CumprarFunc cmp);
 // Eliminaciones
 void eliminarPorPosicion(Lista* lista, int pos);
 void eliminarPorElemento(Lista* lista, void* dato, CompararFunc cmp);
@@ -33,7 +38,7 @@ void eliminarPorElemento(Lista* lista, void* dato, CompararFunc cmp);
 void* buscarPorPosicion(Lista* lista, int pos);
 int buscarPorElemento(Lista* lista, void* dato, CompararFunc cmp);
 
-// Navegación
+// Navegación 
 Nodo* primero(Lista* lista);
 Nodo* ultimo(Lista* lista);
 Nodo* siguiente(Nodo* actual);
